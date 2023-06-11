@@ -1,0 +1,13 @@
+{
+	"name": "qbittorrent-webui-theme",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"watch": "node app.mjs --watch",
+		"build": "node app.mjs"
+	},
+	"devDependencies": {
+		"sass": "^1.63.3"
+	},
+	"license": "MIT"
+}

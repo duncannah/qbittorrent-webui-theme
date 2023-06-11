@@ -1,0 +1,613 @@
+/* ==UserStyle==
+@name           qBittorrent WebUI Dark Theme
+@namespace      https://github.com/duncannah
+@version        1.0.0
+@description    A dark theme for qBittorrent WebUI
+@license        MIT
+==/UserStyle== */
+@use "sass:color";
+
+$background: #000;
+$foreground: #fff;
+
+@function brightenOrig($color, $brightness) {
+	@return color.scale($color, $lightness: calc((255 - $brightness) / 255 * 100%));
+}
+
+@function darkenOrig($color, $brightness) {
+	@return color.scale($color, $lightness: calc($brightness / 255 * -100%));
+}
+
+@document domain("localhost:8080") {
+	:root {
+		--background: #1d1d1d;
+		--background-light: #2d2d2d;
+
+		--background-rgb: 29, 29, 29;
+
+		--foreground: #ffffff;
+		--accent: #8c00ff;
+
+		--foreground-rgb: 255, 255, 255;
+		--accent-rgb: 140, 0, 255;
+
+		--font-family: BlinkMacSystemFont, -apple-system, "Helvetica Neue", Inter, Arial, sans-serif;
+		--font-family-mono: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas,
+			"Liberation Mono", "Courier New", monospace;
+	}
+
+	html,
+	body {
+		background-color: var(--background);
+		color: var(--foreground);
+		font-family: var(--font-family);
+
+		color-scheme: dark;
+	}
+
+	// FONTS
+	#desktopTitlebar h2.tagline,
+	#topNav,
+	#desktopFooter,
+	.contextMenu li a {
+		font-family: var(--font-family);
+	}
+
+	// BACKGROUND
+	// rgb(255, 255, 255)
+	.dynamicTable tbody tr,
+	#torrentFilesTableDiv .dynamicTable tr.nonAlt,
+	html,
+	body,
+	#desktopNavbar ul li a:hover,
+	#desktopNavbar li ul,
+	#desktopNavbar li ul li a:hover .check,
+	#mainPanel,
+	.mochaContentWrapper,
+	.mochaMinimizeButton,
+	.mochaMaximizeButton,
+	.mochaCloseButton,
+	#windowUnderlay,
+	#clock,
+	.dynamicTable tbody tr,
+	.select-watched-folder-editable,
+	.mocha .cornerSE {
+		background-color: brightenOrig($background, 255);
+	}
+
+	// rgb(248, 248, 248)
+	.panel {
+		background-color: brightenOrig($background, 248);
+	}
+
+	// rgb(246, 246, 246)
+	pre {
+		background-color: brightenOrig($background, 246);
+	}
+
+	// rgb(242, 242, 242)
+	.sliderarea,
+	#desktopHeader,
+	#desktopNavbar,
+	#desktopFooter,
+	.panelAlt {
+		background-color: brightenOrig($background, 242);
+	}
+
+	// rgb(241, 241, 241)
+	.panel-header,
+	.mochaToolbarWrapper {
+		background-color: brightenOrig($background, 241);
+	}
+
+	// rgb(239, 239, 239)
+	#rssTorrentDetailsDate {
+		background-color: brightenOrig($background, 239);
+	}
+
+	// rgb(238, 238, 238)
+	.dynamicTable tbody tr:nth-child(2n),
+	.dynamicTable tbody tr.alt,
+	.dynamicTable th,
+	.dynamicTable thead tr,
+	.contextMenu,
+	.contextMenu li a.disabled:hover,
+	.contextMenu li ul,
+	.horizontalHandle {
+		background-color: brightenOrig($background, 238);
+	}
+
+	// rgb(229, 229, 229)
+	#properties,
+	.mocha,
+	.mocha.no-canvas,
+	.mocha.no-canvas .mochaTitlebar,
+	#about_contentWrapper {
+		background-color: brightenOrig($background, 229);
+	}
+
+	// rgb(221, 221, 221)
+	hr,
+	.contextMenu li a:hover {
+		background-color: brightenOrig($background, 221);
+	}
+
+	// rgb(195, 195, 195)
+	.columnHandle {
+		background-color: brightenOrig($background, 195);
+	}
+
+	// rgb(85, 85, 85)
+	#desktopNavbar li ul li .check {
+		background-color: brightenOrig($background, 85);
+	}
+
+	// rgb(53, 65, 88)
+	.dynamicTable tbody tr.selected,
+	#torrentFilesTableDiv .dynamicTable tr.nonAlt.selected,
+	.dynamicTable tbody tr.selected {
+		background-color: rgba(var(--accent-rgb), 0.5);
+	}
+
+	// rgb(238, 102, 0)
+	.dynamicTable tbody tr:hover,
+	ul.filterList li:hover,
+	#torrentFilesTableDiv .dynamicTable tr.nonAlt:hover,
+	.dynamicTable tbody tr:hover {
+		background-color: var(--accent);
+	}
+
+	// rgb(65, 90, 141)
+	.selectedFilter {
+		background-color: rgba(var(--accent-rgb), 0.6);
+		color: var(--foreground);
+	}
+
+	// // rgb(113, 139, 166)
+	// #desktopTitlebarWrapper {
+	// 	background-color: rgb(113, 139, 166);
+	// }
+
+	// // rgb(108, 152, 217)
+	// #desktopNavbar li ul li a:hover {
+	// 	background-color: rgb(108, 152, 217);
+	// }
+
+	// // rgb(0, 255, 0)
+	// .mocha .handle {
+	// 	background-color: rgb(0, 255, 0);
+	// }
+
+	// // rgb(255, 0, 0)
+	// .mocha .corner {
+	// 	background-color: rgb(255, 0, 0);
+	// }
+
+	// // rgb(0, 0, 0)
+	// #modalOverlay {
+	// 	background-color: rgb(0, 0, 0);
+	// }
+
+	// // rgb(206, 223, 242)
+	// .mocha.notification {
+	// 	background-color: rgb(206, 223, 242);
+	// }
+
+	// // rgb(245, 245, 247)
+	// #builder_contentWrapper {
+	// 	background-color: rgb(245, 245, 247);
+	// }
+
+	// // rgb(109, 210, 219)
+	// #json01 .mochaTitlebar {
+	// 	background-color: rgb(109, 210, 219);
+	// }
+
+	// // rgb(109, 182, 219)
+	// #json02 .mochaTitlebar {
+	// 	background-color: rgb(109, 182, 219);
+	// }
+
+	// // rgb(109, 146, 219)
+	// #json03 .mochaTitlebar {
+	// 	background-color: rgb(109, 146, 219);
+	// }
+
+	// // rgb(87, 122, 158)
+	// #fxmorpherExample .mochaContentWrapper {
+	// 	background-color: rgb(87, 122, 158);
+	// }
+
+	// // rgb(103, 141, 178)
+	// #rssTorrentDetailsName {
+	// 	background-color: rgb(103, 141, 178);
+	// }
+
+	// COLOR
+
+	// rgb(255, 255, 255)
+	// .dynamicTable tbody tr.selected,
+	.dynamicTable tbody tr:hover,
+	// .selectedFilter,
+	// .selectedFilter a,
+	// #torrentFilesTableDiv .dynamicTable tr.nonAlt.selected,
+	// #torrentFilesTableDiv .dynamicTable tr.nonAlt:hover,
+	#desktopTitlebar h1.applicationTitle,
+	#desktopTitlebar h2.tagline .taglineEm,
+	#topNav a,
+	#desktopNavbar li ul li a:hover,
+	.mocha.transparent .mochaTitlebar h3,
+	.isFocused.jsonExample .mochaTitlebar h3,
+	// .dynamicTable tbody tr.selected,
+	.dynamicTable tbody tr:hover,
+	// ul.filterList li:hover a,
+	#rssTorrentDetailsName {
+		color: darkenOrig($foreground, 255);
+	}
+
+	// rgb(85, 85, 85)
+	body,
+	h2 {
+		color: darkenOrig($foreground, 85);
+	}
+
+	// rgb(51, 51, 51)
+	h2,
+	h3,
+	h4,
+	#desktopNavbar ul li a,
+	#desktopNavbar ul li a:hover,
+	.panel-header h2 {
+		color: darkenOrig($foreground, 51);
+	}
+
+	// // rgb(255, 0, 0)
+	// #error_div {
+	// 	color: rgb(255, 0, 0);
+	// }
+
+	// rgb(238, 102, 0)
+	a {
+		color: var(--accent);
+	}
+
+	// // rgb(0, 102, 0)
+	// pre {
+	// 	color: rgb(0, 102, 0);
+	// }
+
+	// rgb(204, 204, 204)
+	hr,
+	.contextMenu li a.disabled {
+		color: darkenOrig($foreground, 204);
+	}
+
+	// rgb(0, 0, 0)
+	.contextMenu li a {
+		color: darkenOrig($foreground, 0);
+	}
+
+	// // inherit
+	// ul.filterList a {
+	// 	color: inherit;
+	// }
+
+	// // red
+	// .red, #rssFetchingDisabled {
+	// color: red;
+	// }
+
+	// // green
+	// .green {
+	// color: green;
+	// }
+
+	// rgb(63, 63, 63)
+	.tree li a,
+	#desktopNavbar li ul li a {
+		color: darkenOrig($foreground, 63);
+	}
+
+	// rgb(212, 220, 228)
+	#desktopTitlebar h2.tagline,
+	#topNav {
+		color: darkenOrig($foreground, 212);
+	}
+
+	// rgb(136, 136, 136)
+	.mochaTitlebar h3 {
+		color: darkenOrig($foreground, 136);
+	}
+
+	// rgb(24, 24, 24)
+	.mocha.isFocused .mochaTitlebar h3,
+	.tab-menu li a,
+	.tab-menu li.selected a,
+	.tab-menu li a,
+	.tab-menu li.selected a {
+		color: darkenOrig($foreground, 24);
+	}
+
+	// rgb(102, 102, 102)
+	.mochaMinimizeButton,
+	.mochaMaximizeButton,
+	.mochaCloseButton {
+		color: darkenOrig($foreground, 102);
+	}
+
+	// rgb(221, 221, 221)
+	.jsonExample .mochaTitlebar h3 {
+		color: darkenOrig($foreground, 221);
+	}
+
+	// // blue
+	// .unreadArticle {
+	// color: blue;
+	// }
+
+	// BORDER
+
+	// rgb(209, 215, 220)
+	pre {
+		border-color: darkenOrig($foreground, 209);
+		border-top-color: darkenOrig($foreground, 209);
+	}
+
+	// rgb(85, 81, 91)
+	a.propButton {
+		border-color: darkenOrig($foreground, 85);
+	}
+
+	// rgb(153, 153, 153)
+	.contextMenu,
+	.contextMenu li ul {
+		border-color: darkenOrig($foreground, 153);
+	}
+
+	.contextMenu,
+	.contextMenu .separator,
+	.contextMenu li ul {
+		border-top-color: darkenOrig($foreground, 153);
+	}
+
+	// rgb(163, 163, 163) rgb(163, 163, 163) rgb(204, 204, 204) rgb(204, 204, 204)
+	.sliderarea {
+		border-color: darkenOrig($foreground, 163) darkenOrig($foreground, 163)
+			darkenOrig($foreground, 204) darkenOrig($foreground, 204);
+	}
+
+	//  rgb(163, 163, 163)
+	.sliderarea {
+		border-color: darkenOrig($foreground, 163);
+	}
+
+	// rgb(204, 204, 204)
+	.sliderarea {
+		border-color: darkenOrig($foreground, 204);
+	}
+
+	.dynamicTable th {
+		border-right-color: darkenOrig($foreground, 204);
+	}
+
+	// rgb(0, 0, 0)
+	fieldset.settings,
+	#watched_folders_tab td,
+	#watched_folders_tab th {
+		border-color: darkenOrig($foreground, 0);
+	}
+
+	//  rgb(235, 235, 235)
+	li.divider {
+		border-top-color: darkenOrig($foreground, 235);
+	}
+
+	//  rgb(144, 144, 144)
+	#pageWrapper {
+		border-color: darkenOrig($foreground, 144);
+	}
+
+	.columnHandle {
+		border-color: darkenOrig($foreground, 144);
+	}
+
+	// // rgb(128, 128, 128)
+	// .select-watched-folder-editable {
+	// 	border-color: rgb(127,127,127);
+	// }
+
+	// rgb(63, 63, 63)
+	#desktopNavbar,
+	#desktopNavbar li ul {
+		border-color: darkenOrig($foreground, 63);
+	}
+
+	// rgb(160, 160, 160)
+	.iconWrapper:hover {
+		border-color: darkenOrig($foreground, 160);
+	}
+
+	// rgb(255, 255, 255)
+	.modal2 {
+		border-color: darkenOrig($foreground, 255);
+	}
+
+	.mochaToolbar {
+		border-top-color: darkenOrig($foreground, 255);
+	}
+
+	// rgb(85, 85, 85)
+	.mocha.no-canvas {
+		border-color: darkenOrig($foreground, 85);
+	}
+
+	//  rgb(217, 217, 217)
+	.mochaToolbarWrapper {
+		border-color: darkenOrig($foreground, 217);
+	}
+
+	//  rgb(218, 218, 218)
+	.mochaContentBorder {
+		border-color: darkenOrig($foreground, 218);
+	}
+
+	// rgb(187, 187, 187)
+	#mochaPage h3 {
+		border-bottom-color: darkenOrig($foreground, 187);
+	}
+
+	// rgb(185, 185, 185)
+	.panel {
+		border-bottom-color: darkenOrig($foreground, 185);
+	}
+
+	// rgb(211, 211, 211)
+	.panel-header {
+		border-bottom-color: darkenOrig($foreground, 211);
+	}
+
+	// BACKGROUNDS
+	#desktopNavbar li ul,
+	.panel-header,
+	.horizontalHandle {
+		background-image: none;
+	}
+
+	.panel-headerContent.tabs,
+	.toolbarTabs,
+	.tab-menu li,
+	.tab-menu li.selected,
+	.tab-menu li a,
+	.tab-menu li.selected a {
+		background-image: none;
+	}
+
+	// DROPDOWNS
+	#desktopNavbar li ul,
+	.contextMenu,
+	.contextMenu li ul {
+		background: rgba(var(--background-rgb), 0.9);
+		backdrop-filter: blur(10px);
+	}
+
+	// Browser bug, can't use backdrop-filter on contextMenu
+	.contextMenu li ul {
+		background: var(--background);
+	}
+
+	.contextMenu li a.arrow-right,
+	.contextMenu li a:hover.arrow-right {
+		background-image: url('data:image/svg+xml;utf8,<svg width="9" height="7" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 3.5L0 0V7L4 3.5Z" fill="white"/></svg>');
+	}
+
+	// CUSTOM FIXES
+	#torrentsFilterInput {
+		border: 1px solid var(--background-light);
+		border-radius: 5px;
+		box-shadow: 0 0 10px rgba(var(--background-rgb), 0.5);
+		background-color: rgba(var(--background-rgb), 0.9);
+		background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%235F6368'%3E%3Cpath d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+		background-position: 3px 2px;
+		font: inherit;
+	}
+
+	.tab-menu {
+		li {
+			transition: background-color 0.2s ease-out;
+
+			&:hover {
+				background-color: rgba(var(--accent-rgb), 0.5);
+			}
+
+			&.selected {
+				background-color: rgba(var(--accent-rgb), 0.8);
+			}
+
+			a {
+				font-family: var(--font-family-mono);
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	.dynamicTable tbody tr.selected,
+	.dynamicTable tbody tr:hover {
+		color: var(--foreground);
+	}
+
+	fieldset {
+		border-color: rgb(20, 20, 20);
+		border-radius: 5px;
+	}
+
+	// Progress bar
+	.progressbar_wrapper,
+	#progress > div {
+		border: 0 !important;
+		border-radius: 5px;
+		overflow: hidden;
+		box-shadow: 0 0 10px rgba(var(--background-rgb), 0.5);
+
+		.progressbar_dark {
+			background-color: var(--accent) !important;
+		}
+
+		// Progress bar in info panel
+		// Using a canvas for some reason?
+		canvas {
+			// Need to go from #2000FF to --accent
+			filter: hue-rotate(15deg) brightness(1.5);
+		}
+	}
+
+	#torrent_hash_v1,
+	#torrent_hash_v2,
+	legend {
+		font-family: var(--font-family-mono);
+		text-transform: uppercase;
+	}
+
+	.mochaOverlay {
+		background: var(--background);
+		border-radius: 5px;
+	}
+
+	// Right click context menu
+	.contextMenu,
+	.contextMenu li ul,
+	#desktopNavbar ul ul {
+		border: 1px solid var(--background-light);
+		border-radius: 5px;
+		box-shadow: 0 0 10px rgba(var(--background-rgb), 0.5);
+
+		.separator {
+			border-top: 0;
+
+			&::before {
+				content: "";
+				display: block;
+				height: 1px;
+				background: rgba(var(--foreground-rgb), 0.1);
+				margin: 0.5em 0;
+			}
+		}
+
+		padding: 0.5em;
+
+		li {
+			a {
+				padding: 0.25em 0.5em;
+				border-radius: 5px;
+
+				&:hover {
+					background: var(--accent);
+					color: var(--foreground);
+				}
+
+				.MyMenuIcon {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
